@@ -6,7 +6,7 @@ mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
 
 batch_size = 100
 n_batch = mnist.train.num_examples // batch_size
-
+print(n_batch)
 print(batch_size)
 
 x = tf.placeholder(tf.float32, [None, 784])
