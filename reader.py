@@ -17,16 +17,18 @@ def dataExtra(srcDataList):
         tData = line.split('-')[0]
         tLabel = line.split('-')[1]
 
-        dataList.append([int(x) for x in tData.split(' ')])
+        dataList.append(np.asarray([int(x) for x in tData.split(' ')]))
         labelList.append(int(tLabel))
     return dataList, labelList
 
 def readMnistData():
+    print("start read mnist data")
     filename = 'data/mnist_train_data.txt'
     with open(filename, 'r') as f:
         srcDataList = f.readlines()
     dataList, labelList = dataExtra(srcDataList)
-    return dataList, labelList
+    print("read mnist data successful")
+    return np.asarray(dataList), np.asarray(labelList)
 
 def readRbvMnistData():
     filename = 'data/rbv_mnist_train_data.txt'
@@ -40,7 +42,7 @@ def readRbvMnistData():
     with open(filename, 'r') as f:
         srcDataList = f.readlines()
     dataList, labelList = dataExtra(srcDataList)
-    return dataList, labelList
+    return np.asarray(dataList), np.asarray(labelList)
 
 def writeRbvMnistData():
     print("start write rbvMnistData")
